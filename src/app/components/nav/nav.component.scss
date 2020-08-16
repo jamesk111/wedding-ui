@@ -3,6 +3,7 @@
 	font-family: 'Tangerine', cursive;
 	font-size: 3em;
 	height: 3em;
+	background-image: linear-gradient(#ffb6c2 -25%, transparent);
 
 	span {
 		padding-right: 1rem;
@@ -28,7 +29,7 @@
 		text-align: center;
 
 		div {
-			margin-top: 1rem;
+			padding-top: 1rem;
 		}
 	}
 }
