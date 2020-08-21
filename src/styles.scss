@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+@use "assets/scss/modules/fonts";
+
+$font-stack: Roboto, 'Helvetica Neue', sans-serif;
+$font-stack-tangerine: 'Tangerine', cursive;
 
 * {
 	outline: none;
@@ -10,10 +13,9 @@ html, body {
 }
 
 body {
-	background-image: url("assets/images/rosebg.jpg");
-	background-position-x: center;
+	background: #fff url('assets/images/rosebg.jpg') no-repeat top;
 	background-size: cover;
-	background-repeat: no-repeat;
 	margin: 0;
-	font-family: Roboto, "Helvetica Neue", sans-serif;
+	font-family: $font-stack;
+
 }
