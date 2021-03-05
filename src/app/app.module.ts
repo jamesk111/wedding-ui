@@ -48,7 +48,7 @@ import { environment } from '../environments/environment';
 				allowedList: [
 					{
 						uri: `${ environment.apiUrl }wedding/*`,
-						tokenOptions: { audience: 'https://falk-kline.com/api', scope: 'view:admin' }
+						tokenOptions: { audience: 'https://dev-m231um59.auth0.com/api/v2/', scope: 'view:admin' }
 					}
 				]
 			}
