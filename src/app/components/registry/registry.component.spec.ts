@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {RegistryComponent} from './registry.component';
+import { RegistryComponent } from './registry.component';
 
 describe('RegistryComponent', () => {
 	let component: RegistryComponent;

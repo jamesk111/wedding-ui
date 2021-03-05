@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import {PartyComponent} from './party.component';
+import { PartyComponent } from './party.component';
 
 describe('PartyComponent', () => {
 	let component: PartyComponent;
