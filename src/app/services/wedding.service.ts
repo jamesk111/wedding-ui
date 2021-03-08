@@ -17,22 +17,18 @@ export class WeddingService {
 
 	createGuest(guest: GuestModel): Observable<any> {
 		const body = JSON.stringify(guest);
-		return this.http.post(environment.apiUrl + 'wedding', body, httpOptions);
+		return this.http.post(environment.apiUrl + '/wedding', body, httpOptions);
 	}
 
 	getGuestList(): Observable<GuestModel[]> {
-		return this.http.get<GuestModel[]>(environment.apiUrl + 'wedding/guests');
+		return this.http.get<GuestModel[]>(environment.apiUrl + '/wedding/guests');
 	}
 
 	getGuest(id: number): Observable<GuestModel> {
-		return this.http.get<GuestModel>(environment.apiUrl + 'wedding/guests/' + id);
+		return this.http.get<GuestModel>(environment.apiUrl + '/wedding/guests/' + id);
 	}
 
 	deleteGuest(id: number): Observable<any> {
-		return this.http.delete(environment.apiUrl + 'wedding/guests' + id);
+		return this.http.delete(environment.apiUrl + '/wedding/guests' + id);
 	}
-
-	// return this.http.get<GuestModel[]>(environment.apiUrl + 'wedding/guests',
-// { headers: new HttpHeaders().set('Authorization', 'Bearer ' + token) }
-// );
 }

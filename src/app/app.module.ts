@@ -47,8 +47,8 @@ import { environment } from '../environments/environment';
 			httpInterceptor: {
 				allowedList: [
 					{
-						uri: `${ environment.apiUrl }wedding/*`,
-						tokenOptions: { audience: 'https://dev-m231um59.auth0.com/api/v2/', scope: 'view:admin' }
+						uri: `${ environment.apiUrl }/wedding/*`,
+						tokenOptions: { audience: 'https://falk-kline.com/api' }
 					}
 				]
 			}
