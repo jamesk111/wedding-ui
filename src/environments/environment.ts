@@ -4,7 +4,10 @@
 
 export const environment = {
 	production: false,
-	apiUrl: 'http://localhost:8080/api'
+	apiUrl: 'http://localhost:8080/api',
+	auth0Domain: 'dev-m231um59.auth0.com',
+	auth0Client: '39IUjay81SR6fCykJCiAgWyQRyIkxYTO',
+	auth0Audience: 'https://falk-kline.com/api'
 };
 
 /*

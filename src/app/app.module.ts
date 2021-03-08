@@ -40,15 +40,15 @@ import { environment } from '../environments/environment';
 		FontAwesomeModule,
 		MatTableModule,
 		AuthModule.forRoot({
-			domain: 'dev-m231um59.auth0.com',
-			clientId: '39IUjay81SR6fCykJCiAgWyQRyIkxYTO',
-			audience: 'https://falk-kline.com/api',
+			domain: `${ environment.auth0Domain }`,
+			clientId: `${ environment.auth0Client }`,
+			audience: `${ environment.auth0Audience }`,
 			redirectUri: window.location.origin,
 			httpInterceptor: {
 				allowedList: [
 					{
-						uri: `${ environment.apiUrl }/wedding/*`,
-						tokenOptions: { audience: 'https://falk-kline.com/api' }
+						uri: `${ environment.apiUrl }` + '/wedding/*',
+						tokenOptions: { audience: `${ environment.auth0Audience }` }
 					}
 				]
 			}
