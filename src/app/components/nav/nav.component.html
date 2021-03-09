@@ -4,7 +4,7 @@
 		<span routerLink="details">Details</span>
 		<span routerLink="party">Wedding Party</span>
 		<span routerLink="registry">Registry</span>
-		<span *ngIf="(auth.user$ | async)" routerLink="admin">Admin</span>
+		<span *ngIf="isAdmin" routerLink="admin">Admin</span>
 		<app-login *ngIf="!(auth.isAuthenticated$ | async)"></app-login>
 		<app-logout *ngIf="(auth.isAuthenticated$ | async)"></app-logout>
 	</div>

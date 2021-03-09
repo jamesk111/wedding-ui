@@ -15,6 +15,6 @@ export class LoginComponent implements OnInit {
 	}
 
 	login(): void {
-		this.auth.loginWithPopup();
+		this.auth.loginWithRedirect();
 	}
 }

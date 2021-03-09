@@ -18,6 +18,7 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { CallbackComponent } from './components/callback/callback.component';
 import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { environment } from '../environments/environment';
+import { AdminGuard } from './auth/admin.guard';
 
 @NgModule({
 	declarations: [
@@ -44,11 +45,12 @@ import { environment } from '../environments/environment';
 			clientId: `${ environment.auth0Client }`,
 			audience: `${ environment.auth0Audience }`,
 			redirectUri: window.location.origin,
+			scope: 'openid profile email view:admin',
 			httpInterceptor: {
 				allowedList: [
 					{
 						uri: `${ environment.apiUrl }` + '/wedding/*',
-						tokenOptions: { audience: `${ environment.auth0Audience }` }
+						tokenOptions: { audience: `${ environment.auth0Audience }`, scope: 'view:admin' }
 					}
 				]
 			}
@@ -56,6 +58,7 @@ import { environment } from '../environments/environment';
 	],
 	providers: [
 		WeddingService,
+		AdminGuard,
 		{ provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true }
 	],
 	bootstrap: [AppComponent]
