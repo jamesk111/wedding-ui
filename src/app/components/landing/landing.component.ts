@@ -13,4 +13,8 @@ export class LandingComponent implements OnInit {
 	ngOnInit(): void {
 	}
 
+	rsvp(): void {
+		alert('Coming Soon!');
+	}
+
 }

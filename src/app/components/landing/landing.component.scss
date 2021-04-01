@@ -1,0 +1,40 @@
+.invite {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 30px;
+	line-height: 1.2em;
+	color: black;
+}
+
+.fancy {
+	font-family: 'Tangerine', cursive;
+	font-size: 47px;
+	font-weight: bold;
+	color: #ffb6c2;
+	text-shadow: #800020 -1px 1px 1px;
+
+	span {
+		margin-left: 5px;
+	}
+}
+
+.actions {
+	padding-bottom: 20px;
+
+	.fk-btn {
+		background-color: #800020;
+		color: white;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.fancy {
+		span {
+			margin-left: unset;
+			display: block;
+
+			&:nth-child(2) {
+				margin: 10px 0;
+			}
+		}
+	}
+}

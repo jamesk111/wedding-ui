@@ -1,11 +1,10 @@
 <mat-toolbar class="navbar">
 	<div>James & Claudia</div>
 	<div class="navLinks">
-		<span routerLink="details">Details</span>
-		<span routerLink="party">Wedding Party</span>
-		<span routerLink="registry">Registry</span>
-		<span *ngIf="isAdmin" routerLink="admin">Admin</span>
-		<app-login *ngIf="!(auth.isAuthenticated$ | async)"></app-login>
+		<span routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Details</span>
+		<span routerLink="party" routerLinkActive="active">Wedding Party</span>
+		<span routerLink="registry" routerLinkActive="active">Registry</span>
+		<span *ngIf="isAdmin" routerLink="admin" routerLinkActive="active">Admin</span>
 		<app-logout *ngIf="(auth.isAuthenticated$ | async)"></app-logout>
 	</div>
 </mat-toolbar>
