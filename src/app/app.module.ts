@@ -19,6 +19,7 @@ import { CallbackComponent } from './components/callback/callback.component';
 import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { environment } from '../environments/environment';
 import { AdminGuard } from './auth/admin.guard';
+import { PhotosComponent } from './components/photos/photos.component';
 
 @NgModule({
 	declarations: [
@@ -31,6 +32,7 @@ import { AdminGuard } from './auth/admin.guard';
 		LoginComponent,
 		LogoutComponent,
 		CallbackComponent,
+		PhotosComponent,
 	],
 	imports: [
 		BrowserModule,

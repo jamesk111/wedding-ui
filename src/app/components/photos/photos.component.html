@@ -1,0 +1,10 @@
+<div class="container text-center">
+	<header class="h1">Engagement Photos</header>
+	<img *ngFor="let p of photos; let i=index" mat-card-image class="image-card" src="{{p}}"
+		 alt="Engagement Photo {{i}}">
+	<a class="d-block mt-3" href="https://photos.app.goo.gl/X2z8W7YbKRyTbEtv8">View Google Photos Album</a>
+</div>
+
+<footer class="mt-5 footer">
+	<a href="https://www.cnephotography.net/" target="_blank">Photos by C&E Photography</a>
+</footer>
