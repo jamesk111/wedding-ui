@@ -1,0 +1,97 @@
+<mat-horizontal-stepper linear #stepper>
+	<mat-step [stepControl]="fg1">
+		<form [formGroup]="fg1">
+			<ng-template matStepLabel>Enter invite code</ng-template>
+			<mat-form-field>
+				<mat-label>Invite Code</mat-label>
+				<input matInput
+					   placeholder="Invite Code"
+					   formControlName="inviteCode"
+					   maxlength="6"
+					   minlength="6"
+					   required>
+				<mat-error>
+					<app-form-field-error [controlName]="fg1.get('inviteCode')"></app-form-field-error>
+				</mat-error>
+			</mat-form-field>
+
+			<mat-divider class="mt-2 mb-2"></mat-divider>
+			<div class="d-flex flex-nowrap justify-content-between">
+				<button mat-flat-button (click)="cancel()">Cancel</button>
+				<button mat-flat-button (click)="reset()">Reset</button>
+				<button type="submit" [disabled]="fg1.pristine || fg1.invalid" mat-flat-button (click)="findGuest()">
+					Next
+				</button>
+			</div>
+		</form>
+	</mat-step>
+
+	<mat-step [stepControl]="fg2">
+		<form [formGroup]="fg2">
+			<ng-template matStepLabel>RSVP</ng-template>
+			<p class="text-center">{{guest?.firstName}} {{guest?.lastName}}, will you be attending?</p>
+
+			<mat-radio-group required formControlName="attending" class="d-flex flex-nowrap justify-content-around">
+				<mat-radio-button [value]="true">Yes</mat-radio-button>
+				<mat-radio-button checked [value]="false">No</mat-radio-button>
+			</mat-radio-group>
+
+			<mat-divider class="mt-2 mb-2"></mat-divider>
+			<div class="d-flex flex-nowrap justify-content-between">
+				<button mat-flat-button (click)="cancel()">Cancel</button>
+				<button mat-flat-button (click)="reset()">Reset</button>
+				<button type="submit" mat-flat-button (click)="rsvp()">RSVP</button>
+			</div>
+		</form>
+	</mat-step>
+
+	<mat-step [stepControl]="fg3" optional>
+		<form [formGroup]="fg3">
+			<ng-template matStepLabel>Additional Guests</ng-template>
+			<div *ngIf="additionalGuests" class="additional-guests-container" formArrayName="additionalGuests">
+				<ng-container *ngFor="let g of additionalGuests.controls; let i = index">
+					<div [formGroupName]="i" class="d-flex flex-nowrap ag">
+						<mat-form-field>
+							<mat-label>First Name</mat-label>
+							<input matInput
+								   placeholder="First Name"
+								   formControlName="firstName"
+								   required>
+							<mat-error>
+								<app-form-field-error [controlName]="g.get('firstName')"></app-form-field-error>
+							</mat-error>
+						</mat-form-field>
+
+						<mat-form-field>
+							<mat-label>First Name</mat-label>
+							<input matInput
+								   placeholder="Last Name"
+								   formControlName="lastName"
+								   required>
+							<mat-error>
+								<app-form-field-error [controlName]="g.get('lastName')"></app-form-field-error>
+							</mat-error>
+						</mat-form-field>
+
+						<div class="d-flex flex-column">
+							<span>Guest is over 3 years old?</span>
+							<mat-radio-group required formControlName="overThree" class="d-flex justify-content-around">
+								<mat-radio-button [value]="true">Yes</mat-radio-button>
+								<mat-radio-button checked [value]="false">No</mat-radio-button>
+							</mat-radio-group>
+						</div>
+					</div>
+				</ng-container>
+			</div>
+			<div class="d-flex flex-nowrap justify-content-center">
+				<button mat-raised-button color="primary" (click)="addAdditionalGuest()">Add Guest</button>
+			</div>
+
+			<mat-divider class="mt-2 mb-2"></mat-divider>
+			<div class="d-flex flex-nowrap justify-content-between">
+				<button mat-flat-button (click)="cancel()">Close</button>
+				<button mat-flat-button (click)="saveAdditionalGuests()">Save</button>
+			</div>
+		</form>
+	</mat-step>
+</mat-horizontal-stepper>

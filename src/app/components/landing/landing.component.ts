@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {RsvpDialogComponent} from '../rsvp-dialog/rsvp-dialog.component';
 
 @Component({
 	selector: 'app-landing',
@@ -7,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-	constructor() {
+	constructor(public dialog: MatDialog) {
 	}
 
 	ngOnInit(): void {
 	}
 
 	rsvp(): void {
-		alert('Coming Soon!');
+		this.dialog.open(RsvpDialogComponent);
 	}
 
 }

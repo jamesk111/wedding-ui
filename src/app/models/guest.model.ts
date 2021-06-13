@@ -12,4 +12,8 @@ export interface GuestModel {
 	guestRole: string;
 	reservedDate: Date;
 	attending: boolean;
+	parentId: number;
+	inviteCode: string;
+	allowedPlusOnes: number;
+	ageOverThree: boolean;
 }

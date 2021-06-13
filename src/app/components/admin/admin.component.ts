@@ -10,7 +10,7 @@ import { GuestModel } from '../../models/guest.model';
 export class AdminComponent implements OnInit {
 
 	public guestList: GuestModel[];
-	displayedColumns = ['id', 'name', 'address', 'phone', 'email', 'role', 'reservedDate', 'attending'];
+	displayedColumns = ['id', 'name', 'address', 'phone', 'email', 'role', 'reservedDate', 'attending', 'parentId'];
 
 	constructor(private weddingService: WeddingService) {
 	}
