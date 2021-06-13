@@ -16,7 +16,7 @@ export class LandingComponent implements OnInit {
 	}
 
 	rsvp(): void {
-		this.dialog.open(RsvpDialogComponent);
+		this.dialog.open(RsvpDialogComponent, {maxHeight: '75vh', minWidth: '288px'});
 	}
 
 }

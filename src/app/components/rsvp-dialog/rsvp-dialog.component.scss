@@ -1,7 +1,14 @@
 ::ng-deep .mat-step-header {
 	pointer-events: none !important;
+	padding: 0 !important;
 }
 
 .ag {
 	gap: 20px;
+}
+
+.guest-divider {
+	&:first-of-type {
+		display: none;
+	}
 }

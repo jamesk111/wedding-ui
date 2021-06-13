@@ -1,7 +1,7 @@
-<mat-horizontal-stepper linear #stepper>
+<mat-stepper matStepper linear #stepper>
 	<mat-step [stepControl]="fg1">
 		<form [formGroup]="fg1">
-			<ng-template matStepLabel>Enter invite code</ng-template>
+			<ng-template matStepLabel>Code</ng-template>
 			<mat-form-field>
 				<mat-label>Invite Code</mat-label>
 				<input matInput
@@ -47,10 +47,12 @@
 
 	<mat-step [stepControl]="fg3" optional>
 		<form [formGroup]="fg3">
-			<ng-template matStepLabel>Additional Guests</ng-template>
-			<div *ngIf="additionalGuests" class="additional-guests-container" formArrayName="additionalGuests">
+			<ng-template matStepLabel>Guests</ng-template>
+			<div *ngIf="additionalGuests" formArrayName="additionalGuests">
 				<ng-container *ngFor="let g of additionalGuests.controls; let i = index">
-					<div [formGroupName]="i" class="d-flex flex-nowrap ag">
+					<mat-divider class="my-2 guest-divider"></mat-divider>
+
+					<div [formGroupName]="i" class="d-flex flex-wrap flex-md-nowrap ag">
 						<mat-form-field>
 							<mat-label>First Name</mat-label>
 							<input matInput
@@ -99,4 +101,4 @@
 			</div>
 		</form>
 	</mat-step>
-</mat-horizontal-stepper>
+</mat-stepper>
