@@ -32,7 +32,6 @@ export class WeddingService {
 	}
 
 	getAdditionalGuests(id): Observable<GuestModel[]> {
-		console.log('service::: ' + id);
 		return this.http.get<GuestModel[]>(environment.apiUrl + '/wedding/guests/additional/' + id);
 	}
 
