@@ -67,17 +67,13 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 			httpInterceptor: {
 				allowedList: [
 					{
-						uri: `${environment.apiUrl}` + '/wedding/guests/*',
+						uri: `${environment.apiUrl}` + '/wedding/addGuest',
 						tokenOptions: {audience: `${environment.auth0Audience}`, scope: 'view:admin'}
 					},
 					{
 						uri: `${environment.apiUrl}` + '/wedding/guests',
 						tokenOptions: {audience: `${environment.auth0Audience}`, scope: 'view:admin'}
-					},
-					{
-						uri: `${environment.apiUrl}` + '/wedding',
-						tokenOptions: {audience: `${environment.auth0Audience}`, scope: 'view:admin'}
-					},
+					}
 				]
 			}
 		}),
