@@ -18,6 +18,7 @@ export class RsvpDialogComponent implements OnInit {
 	fg1: FormGroup;
 	fg2: FormGroup;
 	fg3: FormGroup;
+	deleted: Array<number>;
 
 	@ViewChild('stepper', {static: true}) stepper: MatStepper;
 
@@ -30,6 +31,7 @@ export class RsvpDialogComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.guest = null;
+		this.deleted = [];
 
 		this.fg1 = this.formBuilder.group({
 			inviteCode: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
@@ -111,6 +113,8 @@ export class RsvpDialogComponent implements OnInit {
 	}
 
 	getAdditionalGuestsList(): void {
+		this.deleted = [];
+
 		this.weddingService.getAdditionalGuests(this.guest.id).subscribe(
 			data => {
 				data.forEach(g => {
@@ -118,6 +122,7 @@ export class RsvpDialogComponent implements OnInit {
 					f.get('firstName').patchValue(g.firstName);
 					f.get('lastName').patchValue(g.lastName);
 					f.get('overThree').patchValue(g.ageOverThree);
+					f.get('id').patchValue(g.id);
 					this.additionalGuests.push(f);
 				});
 			},
@@ -136,6 +141,7 @@ export class RsvpDialogComponent implements OnInit {
 	}
 
 	deleteAdditionalGuest(index: number): void {
+		this.deleted.push(this.additionalGuests.at(index).get('id').value);
 		this.additionalGuests.removeAt(index);
 	}
 
@@ -143,12 +149,14 @@ export class RsvpDialogComponent implements OnInit {
 		const request: AdditionalGuestRequestModel = {
 			parentId: this.guest.id,
 			inviteCode: this.guest.inviteCode,
-			guests: []
+			guests: [],
+			deleted: this.deleted
 		};
 
 		this.additionalGuests.controls.forEach(c => {
+			const existing = c.get('id').value;
 			const guest: GuestModel = {
-				id: null,
+				id: existing ?? null,
 				firstName: c.get('firstName').value,
 				lastName: c.get('lastName').value,
 				address1: null,
@@ -181,6 +189,7 @@ export class RsvpDialogComponent implements OnInit {
 
 	get agForm(): FormGroup {
 		return this.formBuilder.group({
+			id: ['', Validators.compose([])],
 			firstName: ['', Validators.compose([Validators.required])],
 			lastName: ['', Validators.compose([Validators.required])],
 			overThree: [false, Validators.compose([Validators.required])]

@@ -80,6 +80,10 @@
 								<mat-radio-button checked [value]="false">No</mat-radio-button>
 							</mat-radio-group>
 						</div>
+
+						<button mat-icon-button matTooltip="Delete Guest" (click)="deleteAdditionalGuest(i)">
+							<mat-icon>delete</mat-icon>
+						</button>
 					</div>
 				</ng-container>
 			</div>
@@ -90,6 +94,7 @@
 			<mat-divider class="mt-2 mb-2"></mat-divider>
 			<div class="d-flex flex-nowrap justify-content-between">
 				<button mat-flat-button (click)="cancel()">Close</button>
+				<button mat-flat-button matStepperPrevious>Back</button>
 				<button mat-flat-button (click)="saveAdditionalGuests()">Save</button>
 			</div>
 		</form>

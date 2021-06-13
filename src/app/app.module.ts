@@ -31,6 +31,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {FormFieldErrorComponent} from './components/form-field-error/form-field-error.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
 	declarations: [
@@ -86,7 +88,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 		MatButtonModule,
 		MatDividerModule,
 		MatRadioModule,
-		MatCheckboxModule
+		MatCheckboxModule,
+		MatIconModule,
+		MatTooltipModule
 	],
 	providers: [
 		WeddingService,
