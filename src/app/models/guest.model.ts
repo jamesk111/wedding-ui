@@ -16,4 +16,5 @@ export interface GuestModel {
 	inviteCode: string;
 	allowedPlusOnes: number;
 	ageOverThree: boolean;
+	guestCount: number;
 }

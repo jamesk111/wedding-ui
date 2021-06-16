@@ -10,7 +10,7 @@ import { GuestModel } from '../../models/guest.model';
 export class AdminComponent implements OnInit {
 
 	public guestList: GuestModel[];
-	displayedColumns = ['id', 'name', 'address', 'phone', 'email', 'role', 'reservedDate', 'attending', 'parentId'];
+	displayedColumns = ['name', 'address', 'phone', 'email', 'role', 'attending', 'parentId', 'guests'];
 
 	constructor(private weddingService: WeddingService) {
 	}
@@ -27,6 +27,11 @@ export class AdminComponent implements OnInit {
 			err => console.error(err),
 			() => console.log('Guest List Loaded')
 		);
+	}
+
+	getInvitedCount(): number {
+		const reducer = (accumulator, currentValue) => accumulator + currentValue;
+		return this.guestList.map(x => x.guestCount).reduce(reducer);
 	}
 
 }

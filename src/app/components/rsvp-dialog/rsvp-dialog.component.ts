@@ -172,7 +172,8 @@ export class RsvpDialogComponent implements OnInit {
 				parentId: request.parentId,
 				inviteCode: null,
 				allowedPlusOnes: 0,
-				ageOverThree: c.get('overThree').value
+				ageOverThree: c.get('overThree').value,
+				guestCount: 1
 			};
 			request.guests.push(guest);
 		});
