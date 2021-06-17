@@ -33,6 +33,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {PlusOneViewComponent} from './components/plus-one-view/plus-one-view.component';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
 	declarations: [
@@ -48,6 +50,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 		PhotosComponent,
 		RsvpDialogComponent,
 		FormFieldErrorComponent,
+		PlusOneViewComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -86,7 +89,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 		MatRadioModule,
 		MatCheckboxModule,
 		MatIconModule,
-		MatTooltipModule
+		MatTooltipModule,
+		MatChipsModule
 	],
 	providers: [
 		WeddingService,

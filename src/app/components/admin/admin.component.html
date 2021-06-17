@@ -1,52 +1,66 @@
 <div *ngIf="guestList" class="container font-weight-bold text-center">
-	<div>Invited: {{getInvitedCount()}}</div>
+	<div>Invited: {{getInvitedCount()}}  -  Attending: {{getAttendingCount()}}</div>
 </div>
 
-<table mat-table [dataSource]="guestList">
-	<ng-container matColumnDef="name">
-		<th mat-header-cell *matHeaderCellDef>Name</th>
-		<td mat-cell *matCellDef="let element">{{element.firstName}} {{element.lastName}}</td>
-	</ng-container>
+<form [formGroup]="searchForm" class="container search-form">
+	<mat-form-field class="w-100">
+		<mat-label>Search</mat-label>
+		<input #search matInput placeholder="Search" formControlName="search">
+		<button *ngIf="search.value" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+			<mat-icon>close</mat-icon>
+		</button>
+	</mat-form-field>
+</form>
 
-	<ng-container matColumnDef="address">
-		<th mat-header-cell *matHeaderCellDef>Address</th>
-		<td mat-cell *matCellDef="let element">
-			{{element.address1}}
-			<br>{{element.address2}}
-			<br>{{element.city}} {{element.state}} {{element.zip}}
-		</td>
-	</ng-container>
+<div class="container list-wrapper">
+	<table mat-table [dataSource]="ds">
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef>Name</th>
+			<td mat-cell *matCellDef="let element">
+				<span>{{element.firstName}} {{element.lastName}}</span>
+				<span *ngIf="element.guestCount > 1"> ({{element.guestCount}})</span>
+			</td>
+		</ng-container>
 
-	<ng-container matColumnDef="phone">
-		<th mat-header-cell *matHeaderCellDef>Phone</th>
-		<td mat-cell *matCellDef="let element">{{element.phone}}</td>
-	</ng-container>
+		<ng-container matColumnDef="address">
+			<th mat-header-cell *matHeaderCellDef>Address</th>
+			<td mat-cell *matCellDef="let element">
+				{{element.address1}}
+				<br>{{element.address2}}
+				<br>{{element.city}}, {{element.state}} {{element.zip}}
+			</td>
+		</ng-container>
 
-	<ng-container matColumnDef="email">
-		<th mat-header-cell *matHeaderCellDef>Email</th>
-		<td mat-cell *matCellDef="let element">{{element.email}}</td>
-	</ng-container>
+		<ng-container matColumnDef="phone">
+			<th mat-header-cell *matHeaderCellDef>Phone</th>
+			<td mat-cell *matCellDef="let element">{{element.phone}}</td>
+		</ng-container>
 
-	<ng-container matColumnDef="role">
-		<th mat-header-cell *matHeaderCellDef>Role</th>
-		<td mat-cell *matCellDef="let element">{{element.guestRole}}</td>
-	</ng-container>
+		<ng-container matColumnDef="role">
+			<th mat-header-cell *matHeaderCellDef>Role</th>
+			<td mat-cell *matCellDef="let element">{{element.guestRole}}</td>
+		</ng-container>
 
-	<ng-container matColumnDef="attending">
-		<th mat-header-cell *matHeaderCellDef>Attending?</th>
-		<td mat-cell *matCellDef="let element">{{element.attending}}</td>
-	</ng-container>
+		<ng-container matColumnDef="attending">
+			<th mat-header-cell *matHeaderCellDef>Attending?</th>
+			<td mat-cell *matCellDef="let element">
+				<mat-checkbox [checked]="element.attending" class="attending-cb"></mat-checkbox>
+			</td>
+		</ng-container>
 
-	<ng-container matColumnDef="parentId">
-		<th mat-header-cell *matHeaderCellDef>Parent ID</th>
-		<td mat-cell *matCellDef="let element">{{element.parentId}}</td>
-	</ng-container>
+		<ng-container matColumnDef="p1s">
+			<th mat-header-cell *matHeaderCellDef>P1's</th>
+			<td mat-cell *matCellDef="let element">
+				<span>{{getAg(element.id).p1s?.length}}/{{element.allowedPlusOnes}}</span>
+				<div *ngIf="getAg(element.id).p1s.length > 0">
+					<button mat-icon-button (click)="openP1sView(getAg(element.id))">
+						<mat-icon>open_in_new</mat-icon>
+					</button>
+				</div>
+			</td>
+		</ng-container>
 
-	<ng-container matColumnDef="guests">
-		<th mat-header-cell *matHeaderCellDef>Add. Guests Allowed</th>
-		<td mat-cell *matCellDef="let element">{{element.allowedPlusOnes}}</td>
-	</ng-container>
-
-	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-	<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+	</table>
+</div>

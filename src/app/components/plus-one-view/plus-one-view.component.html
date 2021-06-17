@@ -1,0 +1,6 @@
+<div class="container text-center">
+	<div *ngFor="let g of data; let i = index" class="d-flex flex-nowrap">
+		<span>{{i+1}}) {{g.firstName}} {{g.lastName}}</span>
+		<mat-chip *ngIf="!g.ageOverThree" color="warn" selected class="d-inline ml-2">CHILD UNDER 3</mat-chip>
+	</div>
+</div>

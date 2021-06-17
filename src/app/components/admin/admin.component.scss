@@ -1,0 +1,36 @@
+.list-wrapper {
+	max-height: 70vh;
+	overflow: auto;
+
+	table {
+		width: 100%;
+		opacity: 85%;
+	}
+}
+
+.attending-cb {
+	pointer-events: none;
+}
+
+.mat-column-attending, .mat-column-p1s, .mat-column-role {
+	text-align: center;
+}
+
+.mat-row:nth-child(odd) {
+	background-color: lightgray;
+}
+
+@media print {
+	.list-wrapper {
+		max-height: unset;
+		overflow: visible;
+
+		table {
+			opacity: 100%;
+		}
+	}
+
+	.search-form {
+		display: none;
+	}
+}
