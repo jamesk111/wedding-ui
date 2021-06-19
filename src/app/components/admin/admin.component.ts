@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
 	guestList: GuestModel[];
 	invited: GuestModel[];
 	ds: MatTableDataSource<GuestModel>;
-	displayedColumns = ['name', 'address', 'phone', 'role', 'attending', 'p1s'];
+	displayedColumns = ['name', 'address', 'phone', 'role', 'attending', 'p1s', 'code'];
 	searchForm: FormGroup;
 	adjustedGL: {
 		guest: GuestModel,
