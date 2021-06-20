@@ -35,6 +35,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {PlusOneViewComponent} from './components/plus-one-view/plus-one-view.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
 	declarations: [
@@ -52,46 +53,47 @@ import {MatChipsModule} from '@angular/material/chips';
 		FormFieldErrorComponent,
 		PlusOneViewComponent,
 	],
-	imports: [
-		BrowserModule,
-		HttpClientModule,
-		AppRoutingModule,
-		BrowserAnimationsModule,
-		MatToolbarModule,
-		FontAwesomeModule,
-		MatTableModule,
-		MatDialogModule,
-		AuthModule.forRoot({
-			domain: `${environment.auth0Domain}`,
-			clientId: `${environment.auth0Client}`,
-			audience: `${environment.auth0Audience}`,
-			redirectUri: window.location.origin,
-			scope: 'openid profile email view:admin',
-			httpInterceptor: {
-				allowedList: [
-					{
-						uri: `${environment.apiUrl}` + '/wedding/addGuest',
-						tokenOptions: {audience: `${environment.auth0Audience}`, scope: 'view:admin'}
-					},
-					{
-						uri: `${environment.apiUrl}` + '/wedding/guests',
-						tokenOptions: {audience: `${environment.auth0Audience}`, scope: 'view:admin'}
-					}
-				]
-			}
-		}),
-		MatStepperModule,
-		ReactiveFormsModule,
-		MatFormFieldModule,
-		MatInputModule,
-		MatButtonModule,
-		MatDividerModule,
-		MatRadioModule,
-		MatCheckboxModule,
-		MatIconModule,
-		MatTooltipModule,
-		MatChipsModule
-	],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        FontAwesomeModule,
+        MatTableModule,
+        MatDialogModule,
+        AuthModule.forRoot({
+            domain: `${environment.auth0Domain}`,
+            clientId: `${environment.auth0Client}`,
+            audience: `${environment.auth0Audience}`,
+            redirectUri: window.location.origin,
+            scope: 'openid profile email view:admin',
+            httpInterceptor: {
+                allowedList: [
+                    {
+                        uri: `${environment.apiUrl}` + '/wedding/addGuest',
+                        tokenOptions: {audience: `${environment.auth0Audience}`, scope: 'view:admin'}
+                    },
+                    {
+                        uri: `${environment.apiUrl}` + '/wedding/guests',
+                        tokenOptions: {audience: `${environment.auth0Audience}`, scope: 'view:admin'}
+                    }
+                ]
+            }
+        }),
+        MatStepperModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatDividerModule,
+        MatRadioModule,
+        MatCheckboxModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatChipsModule,
+        MatCardModule
+    ],
 	providers: [
 		WeddingService,
 		AdminGuard,
