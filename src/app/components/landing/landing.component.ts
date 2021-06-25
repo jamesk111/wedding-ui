@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {RsvpDialogComponent} from '../rsvp-dialog/rsvp-dialog.component';
+import {HotelDialogComponent} from '../hotel-dialog/hotel-dialog.component';
 
 @Component({
 	selector: 'app-landing',
@@ -17,6 +18,10 @@ export class LandingComponent implements OnInit {
 
 	rsvp(): void {
 		this.dialog.open(RsvpDialogComponent, {maxHeight: '75vh', minWidth: '288px'});
+	}
+
+	hotel(): void {
+		this.dialog.open(HotelDialogComponent);
 	}
 
 }

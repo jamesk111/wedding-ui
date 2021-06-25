@@ -36,6 +36,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {PlusOneViewComponent} from './components/plus-one-view/plus-one-view.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatCardModule} from '@angular/material/card';
+import {HotelDialogComponent} from './components/hotel-dialog/hotel-dialog.component';
 
 @NgModule({
 	declarations: [
@@ -52,6 +53,7 @@ import {MatCardModule} from '@angular/material/card';
 		RsvpDialogComponent,
 		FormFieldErrorComponent,
 		PlusOneViewComponent,
+		HotelDialogComponent,
 	],
 	imports: [
 		BrowserModule,
