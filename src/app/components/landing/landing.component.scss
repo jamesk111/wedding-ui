@@ -1,17 +1,18 @@
 .invite {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 30px;
-	line-height: 1.2em;
+	font-size: 25px;
 	color: black;
 	text-shadow: 1px 1px 3px black;
 }
 
 .fancy {
 	font-family: 'Tangerine', cursive;
-	font-size: 47px;
+	font-size: 65px;
 	font-weight: bold;
-	color: #ffb6c2;
-	text-shadow: #800020 -1px 1px 1px;
+	line-height: 1em;
+	text-transform: capitalize !important;
+	color: #6c081a;
+	text-shadow: #000000 -1px 1px 1px;
 
 	span {
 		margin-left: 5px;
@@ -35,15 +36,13 @@
 	font-size: 14px;
 }
 
-@media only screen and (max-width: 450px) {
-	.fancy {
-		span {
-			margin-left: unset;
-			display: block;
+@media only screen and (max-width: 768px) {
+	.names {
+		display: flex;
+		flex-wrap: wrap;
 
-			&:nth-child(2) {
-				margin: 10px 0;
-			}
+		span {
+			flex: 1 0 100%;
 		}
 	}
 }

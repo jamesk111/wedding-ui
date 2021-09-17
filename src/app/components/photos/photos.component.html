@@ -1,10 +1,42 @@
-<div class="container text-center">
-	<header class="h1">Engagement Photos</header>
-	<img *ngFor="let p of photos; let i=index" mat-card-image class="image-card" src="{{p}}"
-		 alt="Engagement Photo {{i}}">
-	<a class="d-block mt-3" href="https://photos.app.goo.gl/X2z8W7YbKRyTbEtv8">View Google Photos Album</a>
-</div>
+<div class="mx-3 mb-3">
+	<mat-accordion>
+		<mat-expansion-panel class="mb-3">
+			<mat-expansion-panel-header>
+				<mat-panel-title>
+					<div>
+						<div>Engagement Photos</div>
+						<a href="https://elenaspraguerphotography.com/" target="_blank">by Elena Spraguer
+							Photography</a>
+					</div>
+				</mat-panel-title>
+			</mat-expansion-panel-header>
+			<div class="my-4 py-3 text-center gallery-link">
+				<a href="https://photos.app.goo.gl/24JXyQEp93nNzQ818">View Google Photos Album</a>
+			</div>
+			<div class="container d-flex flex-wrap justify-content-between">
+				<img *ngFor="let p of spraguerGallery; let i=index" mat-card-image class="mt-3 image-card" src="{{p}}"
+					 alt="Engagement Photo {{i}}">
+			</div>
+		</mat-expansion-panel>
+	</mat-accordion>
 
-<footer class="mt-5 footer">
-	<a href="https://www.cnephotography.net/" target="_blank">Photos by C&E Photography</a>
-</footer>
+	<mat-accordion>
+		<mat-expansion-panel>
+			<mat-expansion-panel-header>
+				<mat-panel-title>
+					<div>
+						<div>Christmas/Engagement Photos</div>
+						<a href="https://www.cnephotography.net/" target="_blank">by C&E Photography</a>
+					</div>
+				</mat-panel-title>
+			</mat-expansion-panel-header>
+			<div class="my-4 py-3 text-center gallery-link">
+				<a href="https://photos.app.goo.gl/X2z8W7YbKRyTbEtv8">View Google Photos Album</a>
+			</div>
+			<div class="container d-flex flex-wrap justify-content-between">
+				<img *ngFor="let p of ceGallery; let i=index" mat-card-image class="mt-3 image-card" src="{{p}}"
+					 alt="Engagement Photo {{i}}">
+			</div>
+		</mat-expansion-panel>
+	</mat-accordion>
+</div>

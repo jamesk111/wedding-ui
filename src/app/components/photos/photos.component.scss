@@ -1,11 +1,13 @@
-.image-card {
-	width: 200px;
-	height: 300px;
+.mat-expansion-panel-header-title {
+	flex-grow: 0 !important;
+	width: 25% !important;
 }
 
-.footer {
-	background-color: rgb(255, 182, 194, 0.6);
-	height: 50px;
-	text-align: center;
-	line-height: 50px;
+.gallery-link {
+	border-top: 1px solid rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.image-card {
+	height: 200px;
 }

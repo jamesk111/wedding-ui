@@ -37,6 +37,7 @@ import {PlusOneViewComponent} from './components/plus-one-view/plus-one-view.com
 import {MatChipsModule} from '@angular/material/chips';
 import {MatCardModule} from '@angular/material/card';
 import {HotelDialogComponent} from './components/hotel-dialog/hotel-dialog.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
 	declarations: [
@@ -94,7 +95,8 @@ import {HotelDialogComponent} from './components/hotel-dialog/hotel-dialog.compo
 		MatIconModule,
 		MatTooltipModule,
 		MatChipsModule,
-		MatCardModule
+		MatCardModule,
+		MatExpansionModule
 	],
 	providers: [
 		WeddingService,
