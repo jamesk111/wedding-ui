@@ -1,6 +1,10 @@
-.mat-expansion-panel-header-title {
-	flex-grow: 0 !important;
-	width: 25% !important;
+.mat-expansion-panel {
+	min-width: 250px !important;
+}
+
+.mat-expansion-panel-header {
+	min-height: 48px;
+	height: auto !important;
 }
 
 .gallery-link {
